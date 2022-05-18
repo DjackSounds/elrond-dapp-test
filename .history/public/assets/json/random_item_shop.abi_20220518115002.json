@@ -1,0 +1,347 @@
+{
+  "buildInfo": {
+    "rustc": {
+      "version": "1.61.0-nightly",
+      "commitHash": "52b34550aca5f7dd7e152f773e3ab786acb86f6f",
+      "commitDate": "2022-03-15",
+      "channel": "Nightly",
+      "short": "rustc 1.61.0-nightly (52b34550a 2022-03-15)"
+    },
+    "contractCrate": {
+      "name": "random_item_shop",
+      "version": "0.1.0",
+      "git_version": "9fdcac9"
+    },
+    "framework": {
+      "name": "elrond-wasm",
+      "version": "0.31.1"
+    }
+  },
+  "name": "RandomItemShop",
+  "constructor": {
+    "inputs": [
+      {
+        "name": "owner_rev_share_percent",
+        "type": "u8"
+      },
+      {
+        "name": "admin",
+        "type": "Address"
+      }
+    ],
+    "outputs": []
+  },
+  "endpoints": [
+    {
+      "docs": [
+        "\\n * issue_new_sft_collection OU set_sft_collection\\n * set_active(true) -> buy devient fonctionnel\\n * set_buyable_sft <!> les sft doivent être créé avant (je vais faire une vérif prochainement) soit c'est fait en externe, soit c'est fait avec create_new_sft / create_new_sft_full\\n * set_price\\n "
+      ],
+      "name": "claim",
+      "mutability": "mutable",
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "name": "claimToken",
+      "mutability": "mutable",
+      "inputs": [
+        {
+          "name": "token",
+          "type": "TokenIdentifier"
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "setBuyableSft",
+      "mutability": "mutable",
+      "inputs": [
+        {
+          "name": "buyable",
+          "type": "BuyableSft"
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "removeBuyableSft",
+      "mutability": "mutable",
+      "inputs": [
+        {
+          "name": "sft_nonce",
+          "type": "u64"
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "setPrice",
+      "mutability": "mutable",
+      "inputs": [
+        {
+          "name": "price",
+          "type": "Price"
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "removePrice",
+      "mutability": "mutable",
+      "inputs": [
+        {
+          "name": "token",
+          "type": "TokenIdentifier"
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "buy",
+      "mutability": "mutable",
+      "payableInTokens": ["*"],
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "name": "issueSftCollection",
+      "mutability": "mutable",
+      "payableInTokens": ["EGLD"],
+      "inputs": [
+        {
+          "name": "token_display_name",
+          "type": "bytes"
+        },
+        {
+          "name": "token_ticker",
+          "type": "bytes"
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "setSftCollection",
+      "mutability": "mutable",
+      "inputs": [
+        {
+          "name": "collection_token",
+          "type": "TokenIdentifier"
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "createNewSft",
+      "mutability": "mutable",
+      "inputs": [
+        {
+          "name": "amount",
+          "type": "BigUint"
+        },
+        {
+          "name": "name",
+          "type": "bytes"
+        },
+        {
+          "name": "attributes",
+          "type": "bytes"
+        }
+      ],
+      "outputs": [
+        {
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "createNewSftFull",
+      "mutability": "mutable",
+      "inputs": [
+        {
+          "name": "amount",
+          "type": "BigUint"
+        },
+        {
+          "name": "name",
+          "type": "bytes"
+        },
+        {
+          "name": "royalties",
+          "type": "BigUint"
+        },
+        {
+          "name": "hash",
+          "type": "bytes"
+        },
+        {
+          "name": "attributes",
+          "type": "bytes"
+        },
+        {
+          "name": "uri",
+          "type": "bytes"
+        }
+      ],
+      "outputs": [
+        {
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "mintSft",
+      "mutability": "mutable",
+      "inputs": [
+        {
+          "name": "nonce",
+          "type": "u64"
+        },
+        {
+          "name": "amount",
+          "type": "BigUint"
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "setActive",
+      "mutability": "mutable",
+      "inputs": [
+        {
+          "name": "active",
+          "type": "bool"
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "getPrices",
+      "mutability": "readonly",
+      "inputs": [],
+      "outputs": [
+        {
+          "type": "List<Price>"
+        }
+      ]
+    },
+    {
+      "name": "sftCollectionTokenIsSet",
+      "mutability": "readonly",
+      "inputs": [],
+      "outputs": [
+        {
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "getSftCollectionToken",
+      "mutability": "readonly",
+      "inputs": [],
+      "outputs": [
+        {
+          "type": "TokenIdentifier"
+        }
+      ]
+    },
+    {
+      "name": "getBuyableSfts",
+      "mutability": "readonly",
+      "inputs": [],
+      "outputs": [
+        {
+          "type": "List<BuyableSft>"
+        }
+      ]
+    },
+    {
+      "name": "hasToRefill",
+      "mutability": "readonly",
+      "inputs": [
+        {
+          "name": "user",
+          "type": "Address"
+        }
+      ],
+      "outputs": [
+        {
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "isAdmin",
+      "mutability": "readonly",
+      "inputs": [
+        {
+          "name": "user",
+          "type": "Address"
+        }
+      ],
+      "outputs": [
+        {
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "getAdmin",
+      "mutability": "readonly",
+      "inputs": [],
+      "outputs": [
+        {
+          "type": "Address"
+        }
+      ]
+    },
+    {
+      "name": "isActive",
+      "mutability": "readonly",
+      "inputs": [],
+      "outputs": [
+        {
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "getOwnerRevSharePercent",
+      "mutability": "readonly",
+      "inputs": [],
+      "outputs": [
+        {
+          "type": "u8"
+        }
+      ]
+    }
+  ],
+  "hasCallback": false,
+  "types": {
+    "BuyableSft": {
+      "type": "struct",
+      "fields": [
+        {
+          "name": "sft_nonce",
+          "type": "u64"
+        },
+        {
+          "name": "weight",
+          "type": "u8"
+        }
+      ]
+    },
+    "Price": {
+      "type": "struct",
+      "fields": [
+        {
+          "name": "token",
+          "type": "TokenIdentifier"
+        },
+        {
+          "name": "amount",
+          "type": "BigUint"
+        }
+      ]
+    }
+  }
+}
