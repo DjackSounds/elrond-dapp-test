@@ -40,5 +40,5 @@ export default function TxTest() {
   };
 
   // eslint-disable-next-line react/react-in-jsx-scope
-  return <button onClick={sendTx}>Claim</button>;
+  return <button onClick={sendTx}>setActive</button>;
 }
